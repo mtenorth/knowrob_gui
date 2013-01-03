@@ -1,0 +1,19 @@
+<package>
+  <description brief="knowrob_gui">
+
+    Components for editing semantic environment maps and action recipes.
+
+  </description>
+  <author>Moritz Tenorth, tenorth@atr.jp</author>
+  <license>MIT</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/knowrob_gui</url>
+
+  <depend package="re_comm"/>
+  <depend package="mod_semantic_map"/>
+
+  <export>
+    <java classpath="${prefix}/bin"/>
+  </export>
+  
+</package>
