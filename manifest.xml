@@ -10,7 +10,6 @@
   <url>http://ros.org/wiki/knowrob_gui</url>
 
   <depend package="re_comm"/>
-  <depend package="mod_semantic_map"/>
 
   <export>
     <java classpath="${prefix}/bin"/>
