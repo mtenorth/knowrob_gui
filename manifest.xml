@@ -9,7 +9,8 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/knowrob_gui</url>
 
-  <depend package="re_comm"/>
+  <depend package="mod_vis"/>
+  
 
   <export>
     <java classpath="${prefix}/bin"/>
