@@ -65,7 +65,7 @@ public class KnowRobGuiMain extends PApplet implements MouseListener, MouseMotio
 		background(40);
 		
 		//initLocalProlog("prolog/init.pl");
-		PrologInterface.initJPLProlog("re_comm");
+		PrologInterface.initJPLProlog("mod_vis");
 		new jpl.Query("use_module(library('knowrob_coordinates'))").oneSolution();
 		new jpl.Query("use_module(library('comp_similarity'))").oneSolution();
 		
