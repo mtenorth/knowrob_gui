@@ -90,8 +90,5 @@ add_runtime_classpath(${mod_vis_PACKAGE_PATH}/lib/snakeyaml-1.9.jar)
 
 add_java_source_dir(${PROJECT_SOURCE_DIR}/src)
 
-
-rospack_add_java_executable(KnowRobGUI jp.atr.unr.pf.gui.KnowRobGuiMain)
-
-
+rospack_add_java_executable(KnowRobGUIMain jp.atr.unr.pf.gui.KnowRobGuiMain)
 
