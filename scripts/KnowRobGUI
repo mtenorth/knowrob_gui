@@ -2,6 +2,7 @@
 
 export LD_PRELOAD=libswipl.so
 export SWI_HOME_DIR=/usr/lib/swi-prolog
+export JAVA_HOME=/usr/lib/jvm/default-java
 
 GUI_PATH=`rospack find knowrob_gui`
 
