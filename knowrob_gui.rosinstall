@@ -1,9 +1,3 @@
-- svn:
-    uri: https://ipvs.informatik.uni-stuttgart.de/roboearth/repos/public/tags/latest
-    local-name: stacks/roboearth
-- svn:
-    uri: https://tum-ros-pkg.svn.sourceforge.net/svnroot/tum-ros-pkg/knowledge
-    local-name: pkgs/tum-ros-pkg/knowledge
-- svn:
-    local-name: stacks/knowrob
-    uri: http://code.in.tum.de/pubsvn/knowrob/tags/latest
+- git: {local-name: stacks/knowrob, uri: 'https://github.com/knowrob/knowrob.git', version: indigo-devel }
+- git: {local-name: stacks/knowrob_addons, uri: 'https://github.com/knowrob/knowrob_addons.git', version: indigo-devel }
+- git: {local-name: stacks/knowrob_gui, uri: 'https://github.com/knowrob/knowrob_gui.git'}
