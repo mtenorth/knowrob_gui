@@ -23,7 +23,7 @@ package org.knowrob.gui;
 
 import org.knowrob.vis.themes.GreyTheme;
 
-import jp.atr.unr.pf.roboearth.RoboEarthInterface;
+import org.knowrob.roboearth.RoboEarthInterface;
 
 import controlP5.Button;
 import controlP5.ControlEvent;
