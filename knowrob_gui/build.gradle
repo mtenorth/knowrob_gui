@@ -16,7 +16,7 @@
 
 /* This plugin is necessary for creating installApp tasks (i.e. executables) */
 apply plugin: 'application'
-mainClassName = 'org.ros.RosRun'
+mainClassName = 'org.knowrob.gui.KnowRobGuiMain'
 
 /* 
  Dependencies can be on external maven artifacts (such as rosjava_core
@@ -28,31 +28,27 @@ mainClassName = 'org.ros.RosRun'
 
 dependencies {
 
-  compile 'org.ros.rosjava_core:rosjava:[0.1,)'
   compile 'org.knowrob.knowrob_common:knowrob_common:[0.1,)'
   compile 'org.knowrob.knowrob_cad_parser:knowrob_cad_parser:[0.1,)'
 
-  compile 'commons-net:commons-net:3.0.1'
   compile 'jpl:jpl:3.1.4-alpha'
   compile 'java3d:vecmath:1.3.1'
+  compile 'org.yaml:snakeyaml:1.13'
+  compile 'com.google.guava:guava:17.0'
 
   compile 'net.sourceforge.owlapi:owlapi-distribution:3.5.0'
   compile 'com.hermit-reasoner:org.semanticweb.hermit:1.3.8.4'
 
-  compile 'com.google.guava:guava:17.0'
-
+  compile 'commons-net:commons-net:3.0.1'
   compile 'org.apache.commons:commons-lang3:3.3.2'
-  compile 'org.apache.commons:commons-lang3:1.4'
   compile 'commons-logging:commons-logging:1.1.1'
 
   compile 'org.apache.httpcomponents:httpclient:4.1.1'
   compile 'org.apache.httpcomponents:httpclient-cache:4.1.1'
   compile 'org.apache.httpcomponents:httpcore:4.1'
   compile 'org.apache.httpcomponents:httpmime:4.1.1'
-  compile 'org.yaml:snakeyaml:1.13'
 
   compile fileTree(dir: 'lib', include: ['*.jar'])
-
 }
 
 task writeClasspath << {

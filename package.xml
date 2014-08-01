@@ -17,5 +17,6 @@
 
   <run_depend>knowrob_common</run_depend>
   <run_depend>knowrob_cad_parser</run_depend>
+  <run_depend>swi-prolog-java</run_depend>
 
 </package>
