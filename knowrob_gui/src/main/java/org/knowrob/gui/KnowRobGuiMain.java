@@ -63,13 +63,13 @@ public class KnowRobGuiMain extends PApplet implements MouseListener, MouseMotio
 		background(40);
 		
 		//initLocalProlog("prolog/init.pl");
-		PrologInterface.initJPLProlog("mod_vis");
+		PrologInterface.initJPLProlog("knowrob_objects");
 		new jpl.Query("use_module(library('knowrob_coordinates'))").oneSolution();
 		new jpl.Query("use_module(library('comp_similarity'))").oneSolution();
 		
 		if (this.frame != null)
 		{
-		    this.frame.setTitle("UNR teleoperation console");
+		    this.frame.setTitle("KnowRob GUI");
 		    this.frame.setBackground(new Color(40, 40, 40));
 		    this.frame.setResizable(true);
 		}
@@ -232,6 +232,6 @@ public class KnowRobGuiMain extends PApplet implements MouseListener, MouseMotio
 	
 	
 	public static void main(String args[]) {
-		PApplet.main(new String[] { "jp.atr.unr.pf.gui.KnowRobGuiMain" });
+		PApplet.main(new String[] { "org.knowrob.gui.KnowRobGuiMain" });
 	}
 }

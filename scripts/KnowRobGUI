@@ -1,9 +1,15 @@
 #!/bin/bash
 
+if [ $(uname -i) == 'x86_64' ]; then
+  export LD_LIBRARY_PATH=/usr/lib/swi-prolog/lib/amd64:$LD_LIBRARY_PATH
+else
+  export LD_LIBRARY_PATH=/usr/lib/swi-prolog/lib/i386:$LD_LIBRARY_PATH
+fi
+
 export LD_PRELOAD=libswipl.so
 export SWI_HOME_DIR=/usr/lib/swi-prolog
 export JAVA_HOME=/usr/lib/jvm/default-java
 
 GUI_PATH=`rospack find knowrob_gui`
 
-${GUI_PATH}/bin/KnowRobGUIMain
+${GUI_PATH}/knowrob_gui/build/install/knowrob_gui/bin/knowrob_gui
