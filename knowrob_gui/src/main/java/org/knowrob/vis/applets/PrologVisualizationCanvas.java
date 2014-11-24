@@ -85,7 +85,7 @@ public class PrologVisualizationCanvas extends PApplet implements MouseListener,
 
 	/**
 	 * displays an action via it's fixed identifier
-	 * @param e.g. "http://ias.cs.tum.edu/kb/knowrob.owl#Reaching_0_2"
+	 * @param e.g. "http://knowrob.org/kb/knowrob.owl#Reaching_0_2"
 	 */
     public void displayFixed(String identifier) {
     	KVObject.displayActionFixedIdent(addSingleQuotes(identifier));
@@ -94,7 +94,7 @@ public class PrologVisualizationCanvas extends PApplet implements MouseListener,
 
 	/**
 	 * displays an action via it's fixed identifier
-	 * @param e.g. "http://ias.cs.tum.edu/kb/knowrob.owl#Reaching_0_2"
+	 * @param e.g. "http://knowrob.org/kb/knowrob.owl#Reaching_0_2"
 	 */
     public void displayAction(String identifier) {
     	KVObject.displayAction(addSingleQuotes(identifier));
@@ -138,7 +138,7 @@ public class PrologVisualizationCanvas extends PApplet implements MouseListener,
     /**
      * same as
      * clear();
-     * addObject("http://ias.cs.tum.edu/kb/ias_semantic_map.owl#F360-Containers-revised-walls");
+     * addObject("http://knowrob.org/kb/ias_semantic_map.owl#F360-Containers-revised-walls");
      */
     public void drawBackground(){
     	KVObject.drawBackground();
@@ -148,7 +148,7 @@ public class PrologVisualizationCanvas extends PApplet implements MouseListener,
 
     /**
      * adds Object to scene.
-     * @param identifier eg. "http://ias.cs.tum.edu/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
+     * @param identifier eg. "http://knowrob.org/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
      */
     public void addObject(String identifier){
     	KVObject.addObject(addSingleQuotes(identifier));
@@ -159,7 +159,7 @@ public class PrologVisualizationCanvas extends PApplet implements MouseListener,
      * adds Objects to scene.
      * adds all items reachable from it via knowrob:properPhysicalPartTypes
      * adds all items from which this item can be reached via knowrob:describedInMap
-     * @param identifier eg. "http://ias.cs.tum.edu/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
+     * @param identifier eg. "http://knowrob.org/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
      */
     public void addObjectWithChildren(String identifier) {
     	KVObject.addObjectWithChildren(addSingleQuotes(identifier));
@@ -168,7 +168,7 @@ public class PrologVisualizationCanvas extends PApplet implements MouseListener,
 
     /**
      * adds Trajectory to scene.
-     * @param identifier List of identifiers, eg. "http://ias.cs.tum.edu/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
+     * @param identifier List of identifiers, eg. "http://knowrob.org/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
      */
     public void addTrajectory(String[] identifiers){
 
@@ -185,7 +185,7 @@ public class PrologVisualizationCanvas extends PApplet implements MouseListener,
 
     /**
      * removes object from scene
-     * @param identifier eg. "http://ias.cs.tum.edu/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
+     * @param identifier eg. "http://knowrob.org/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
      */
     public void removeObject(String identifier){
     	KVObject.removeObject(addSingleQuotes(identifier));
@@ -197,7 +197,7 @@ public class PrologVisualizationCanvas extends PApplet implements MouseListener,
      * removes Objects from scene.
      * removes all items reachable from it via knowrob:properPhysicalPartTypes
      * removes all items from which this item can be reached via knowrob:describedInMap
-     * @param identifier eg. "http://ias.cs.tum.edu/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
+     * @param identifier eg. "http://knowrob.org/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
      */
     public void removeObjectWithChildren(String identifier) {
     	KVObject.removeObjectWithChildren(addSingleQuotes(identifier));
@@ -206,7 +206,7 @@ public class PrologVisualizationCanvas extends PApplet implements MouseListener,
 
     /**
      * highlights object
-     * @param identifier eg. "http://ias.cs.tum.edu/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
+     * @param identifier eg. "http://knowrob.org/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
      * @param highlight true = highlight; false=unhighlight
      */
     public void highlight(String identifier, boolean highlight) {
@@ -268,7 +268,7 @@ public class PrologVisualizationCanvas extends PApplet implements MouseListener,
 
     /**
      * highlights object, and everything that is reachable from it via knowrob:properPhysicalPartTypes
-     * @param identifier eg. "http://ias.cs.tum.edu/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
+     * @param identifier eg. "http://knowrob.org/kb/ias_semantic_map.owl#F360-Containers-revised-walls"
      * @param highlight true = highlight; false=unhighlight
      */
     public void highlightWithChildren(String identifier, boolean highlight) {
@@ -288,7 +288,7 @@ public class PrologVisualizationCanvas extends PApplet implements MouseListener,
 
 	/**
 	 * displays an action via it's fixed identifier
-	 * @param e.g. "http://ias.cs.tum.edu/kb/knowrob.owl#Reaching_0_2"
+	 * @param e.g. "http://knowrob.org/kb/knowrob.owl#Reaching_0_2"
 	 */
     public void mapObjectClicked(String identifier) {
     	displayInformationForEntity(addSingleQuotes(identifier));

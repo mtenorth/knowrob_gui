@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -296,7 +297,7 @@ public class SemanticMapEditorForms extends PApplet {
 		for(int i: objClasses.keySet()) {
 			
 			// add to OWLClass identifier buffer to enable later resolution by shortname
-			cl = OWLClass.getOWLClass("http://ias.cs.tum.edu/kb/knowrob.owl#" + objClasses.get(i));
+			cl = OWLClass.getOWLClass("http://knowrob.org/kb/knowrob.owl#" + objClasses.get(i));
 			
 			b = t_types.addItem(cl.getShortName(),i);
 			
@@ -473,7 +474,7 @@ public class SemanticMapEditorForms extends PApplet {
 		if(map_namespace!=null && !map_namespace.equals("")) {
 			t_namespace.setText(map_namespace);
 		} else {
-			t_namespace.setText("http://ias.cs.tum.edu/kb/ias_semantic_map.owl#");
+			t_namespace.setText("http://knowrob.org/kb/ias_semantic_map.owl#");
 		}
 		t_namespace.moveTo("settings");
 		
@@ -544,17 +545,17 @@ public class SemanticMapEditorForms extends PApplet {
 							o.removePhysicalPart(reminst);
 						}
 						
-						Vector<String> propval = o.getObjPropValues("http://ias.cs.tum.edu/kb/knowrob.owl#connectedTo-Rigidly");
+						Vector<String> propval = o.getObjPropValues("http://knowrob.org/kb/knowrob.owl#connectedTo-Rigidly");
 						if(propval!=null && propval.contains(reminst.getIRI())) {
 							propval.remove(reminst.getIRI());
 						}
 						
-						propval = o.getObjPropValues("http://ias.cs.tum.edu/kb/knowrob.owl#hingedTo");
+						propval = o.getObjPropValues("http://knowrob.org/kb/knowrob.owl#hingedTo");
 						if(propval!=null && propval.contains(reminst.getIRI())) {
 							propval.remove(reminst.getIRI());
 						}
 						
-						propval = o.getObjPropValues("http://ias.cs.tum.edu/kb/knowrob.owl#prismaticallyConnectedTo");
+						propval = o.getObjPropValues("http://knowrob.org/kb/knowrob.owl#prismaticallyConnectedTo");
 						if(propval!=null && propval.contains(reminst.getIRI())) {
 							propval.remove(reminst.getIRI());
 						}
@@ -689,12 +690,18 @@ public class SemanticMapEditorForms extends PApplet {
 		OWLImportExport exp = new OWLImportExport();
 		
 		RDFXMLOntologyFormat format = new RDFXMLOntologyFormat();
-		format.setPrefix("knowrob:", "http://ias.cs.tum.edu/kb/knowrob.owl#");
+		format.setPrefix("knowrob:", "http://knowrob.org/kb/knowrob.owl#");
 		format.setPrefix("owl:", "http://www.w3.org/2002/07/owl#");
 		format.setPrefix("rdfs:", "http://www.w3.org/2000/01/rdf-schema#");
 		format.setPrefix("map:", t_namespace.getText());
 		
 		OWLOntology ont = exp.createOWLMapDescription(map_namespace, map_id, new ArrayList<ObjectInstance>(this.objects.values()));
+		
+		if(filename==null || filename.equals("")) {
+
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+			filename="map-" + sdf.format(new Date()) + ".owl";
+		}
 		
 		OWLFileUtils.saveOntologyToFile(ont, format, filename);
 	}

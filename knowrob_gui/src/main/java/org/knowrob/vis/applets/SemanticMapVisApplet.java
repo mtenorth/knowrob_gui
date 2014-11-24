@@ -471,7 +471,7 @@ public class SemanticMapVisApplet extends AnimatedCanvas implements MouseListene
 
 	/**
 	 * Highlights one object, only if it is present in the scene (does not add anything)
-	 * @param identifier e.g.: "'http://ias.cs.tum.edu/kb/ias_semantic_map.owl#drawer3'" (WITH single quotes!)
+	 * @param identifier e.g.: "'http://knowrob.org/kb/ias_semantic_map.owl#drawer3'" (WITH single quotes!)
 	 */  	
 	public void highlightItem(String identifier, boolean highlight, int color) {
 		ItemBase itm = animatedItemsRef.get(identifier);
@@ -531,29 +531,29 @@ public class SemanticMapVisApplet extends AnimatedCanvas implements MouseListene
 
 	/**
 	 * displays one PROLOG-instance of an action BY IT'S DYNAMIC IDENTIFIER,
-	 * for example "'http://ias.cs.tum.edu/kb/knowrob.owl#Reaching50'"
+	 * for example "'http://knowrob.org/kb/knowrob.owl#Reaching50'"
 	 * 
-	 * @param identifier e.g.: "'http://ias.cs.tum.edu/kb/knowrob.owl#Reaching50'" (WITH single quotes!)
+	 * @param identifier e.g.: "'http://knowrob.org/kb/knowrob.owl#Reaching50'" (WITH single quotes!)
 	 */
 	public void displayAction(String identifier)
 	{
 		// reset everything
 		clear();
-		addObjectWithChildren("'http://ias.cs.tum.edu/kb/ccrl2_semantic_map.owl#SemanticEnvironmentMap0'");
-		addObjectWithChildren("'http://ias.cs.tum.edu/kb/ias_map_addons.owl#table0'");
+		addObjectWithChildren("'http://knowrob.org/kb/ccrl2_semantic_map.owl#SemanticEnvironmentMap0'");
+		addObjectWithChildren("'http://knowrob.org/kb/ias_map_addons.owl#table0'");
 
 
-		addObject("'http://ias.cs.tum.edu/kb/knowrob.owl#placemat1'");
-		addObject("'http://ias.cs.tum.edu/kb/ias_entities.owl#napkin1'");
-		addObject("'http://ias.cs.tum.edu/kb/ias_entities.owl#spoon1'");
-		addObject("'http://ias.cs.tum.edu/kb/ias_entities.owl#plate1'");
-		addObject("'http://ias.cs.tum.edu/kb/ias_entities.owl#fork1'");
-		addObject("'http://ias.cs.tum.edu/kb/ias_entities.owl#knife1'");
+		addObject("'http://knowrob.org/kb/knowrob.owl#placemat1'");
+		addObject("'http://knowrob.org/kb/ias_entities.owl#napkin1'");
+		addObject("'http://knowrob.org/kb/ias_entities.owl#spoon1'");
+		addObject("'http://knowrob.org/kb/ias_entities.owl#plate1'");
+		addObject("'http://knowrob.org/kb/ias_entities.owl#fork1'");
+		addObject("'http://knowrob.org/kb/ias_entities.owl#knife1'");
 
 		try{
 			HashMap<String, Vector<String>> c = PrologInterface.executeQuery(
-					"rdf_has("+identifier+", 'http://ias.cs.tum.edu/kb/knowrob.owl#startTime', S), "
-							+"rdf_has("+identifier+", 'http://ias.cs.tum.edu/kb/knowrob.owl#endTime', E)");	
+					"rdf_has("+identifier+", 'http://knowrob.org/kb/knowrob.owl#startTime', S), "
+							+"rdf_has("+identifier+", 'http://knowrob.org/kb/knowrob.owl#endTime', E)");	
 
 			if(c==null) return;
 			
@@ -646,7 +646,7 @@ public class SemanticMapVisApplet extends AnimatedCanvas implements MouseListene
 
 			// add fromLocation and toLocation as colored spheres, if they are present
 			c = PrologInterface.executeQuery(
-					"rdf_triple('http://ias.cs.tum.edu/kb/knowrob.owl#fromLocation', "+identifier+", From)");
+					"rdf_triple('http://knowrob.org/kb/knowrob.owl#fromLocation', "+identifier+", From)");
 			if(c!=null && c.get("From")!= null) {
 				String fromLoc = (String)c.get("From").get(0);
 				if(fromLoc!=null) {
@@ -655,7 +655,7 @@ public class SemanticMapVisApplet extends AnimatedCanvas implements MouseListene
 			}
 
 			c = PrologInterface.executeQuery(
-					"rdf_triple('http://ias.cs.tum.edu/kb/knowrob.owl#toLocation', "+identifier+", To)");
+					"rdf_triple('http://knowrob.org/kb/knowrob.owl#toLocation', "+identifier+", To)");
 			if(c!=null && c.get("To")!=null) {
 				String toLoc = (String)c.get("To").get(0);
 				if(toLoc!=null) {
@@ -679,7 +679,7 @@ public class SemanticMapVisApplet extends AnimatedCanvas implements MouseListene
 
 	/** Displays human trajectories 
 	 * 
-	 * @param identifier= 'http://ias.cs.tum.edu/kb/knowrob.owl#PickingUpAnObject'
+	 * @param identifier= 'http://knowrob.org/kb/knowrob.owl#PickingUpAnObject'
 	 * @param handUsed = 'RightHand' or 'LeftHand'
 	 */
 
@@ -739,7 +739,7 @@ public class SemanticMapVisApplet extends AnimatedCanvas implements MouseListene
 
 	/** Displays the eye trajectory from the gaze camera 
 	 * 
-	 * @param identifier = 'http://ias.cs.tum.edu/kb/knowrob.owl#PickingUpAnObject'
+	 * @param identifier = 'http://knowrob.org/kb/knowrob.owl#PickingUpAnObject'
 	 */
 	public void displayEyeTrajectory (String identifier) {
 		Integer Occ=1, auxOcc=1; 
@@ -793,9 +793,9 @@ public class SemanticMapVisApplet extends AnimatedCanvas implements MouseListene
 
 	/**
 	 * displays one PROLOG-instance of an action BY IT'S FIXED IDENTIFIER,
-	 * for example "'http://ias.cs.tum.edu/kb/knowrob.owl#Reaching_0_2'"
+	 * for example "'http://knowrob.org/kb/knowrob.owl#Reaching_0_2'"
 	 * 
-	 * @param identifier e.g.: "'http://ias.cs.tum.edu/kb/knowrob.owl#Reaching_0_2'" (WITH single quotes!)
+	 * @param identifier e.g.: "'http://knowrob.org/kb/knowrob.owl#Reaching_0_2'" (WITH single quotes!)
 	 */
 	public void displayActionFixedIdent(String identifier)
 	{
@@ -914,9 +914,9 @@ public class SemanticMapVisApplet extends AnimatedCanvas implements MouseListene
 		}
 
 		// ignore list (not displayable):
-		if(type.equals("'http://ias.cs.tum.edu/kb/knowrob.owl#SemanticEnvironmentMap'")
-				|| type.equals("'http://ias.cs.tum.edu/kb/knowrob.owl#Vector'")
-				|| type.equals("'http://ias.cs.tum.edu/kb/knowrob.owl#WallOfAConstruction'")
+		if(type.equals("'http://knowrob.org/kb/knowrob.owl#SemanticEnvironmentMap'")
+				|| type.equals("'http://knowrob.org/kb/knowrob.owl#Vector'")
+				|| type.equals("'http://knowrob.org/kb/knowrob.owl#WallOfAConstruction'")
 				) {
 			return null;
 

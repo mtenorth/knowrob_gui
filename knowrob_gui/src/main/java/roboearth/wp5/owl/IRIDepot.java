@@ -67,7 +67,7 @@ public class IRIDepot {
 	public final static String ROBOEARTH = "http://www.roboearth.org/kb/roboearth.owl#";
 	
 	// Base IRI for KnowRob 
-	public final static String KNOWROB = "http://ias.cs.tum.edu/kb/knowrob.owl#";
+	public final static String KNOWROB = "http://knowrob.org/kb/knowrob.owl#";
 
 	// Base IRI for OWL 
 	public final static String OWL = "http://www.w3.org/2002/07/owl#";
@@ -82,13 +82,13 @@ public class IRIDepot {
 	public final static String RDFS = "http://www.w3.org/2000/01/rdf-schema#";
 
 	// Base IRI for SRDL2 
-	public final static String SRDL2="http://ias.cs.tum.edu/kb/srdl2.owl#";
+	public final static String SRDL2="http://knowrob.org/kb/srdl2.owl#";
 	
 	// Base IRI for SRDL2-CAP
-	public final static String SRDL2_CAP = "http://ias.cs.tum.edu/kb/srdl2-cap.owl#";
+	public final static String SRDL2_CAP = "http://knowrob.org/kb/srdl2-cap.owl#";
 
 	// Base IRI for SRDL2-COMP
-	public final static String SRDL2_COMP = "http://ias.cs.tum.edu/kb/srdl2-comp.owl#";
+	public final static String SRDL2_COMP = "http://knowrob.org/kb/srdl2-comp.owl#";
 
 	// Base IRI for XSD
 	public final static String XSD = "http://www.w3.org/2001/XMLSchema#";

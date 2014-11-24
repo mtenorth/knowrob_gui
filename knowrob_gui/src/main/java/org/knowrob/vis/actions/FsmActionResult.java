@@ -64,7 +64,7 @@ public enum FsmActionResult {
     	if(!res.startsWith("CONDITION"))
     		res = "COMPLETED_" + res;
     	
-    	return "http://ias.cs.tum.edu/kb/knowrob.owl#" + res;
+    	return "http://knowrob.org/kb/knowrob.owl#" + res;
     }
 
 }

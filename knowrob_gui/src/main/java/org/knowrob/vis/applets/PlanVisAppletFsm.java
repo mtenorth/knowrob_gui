@@ -195,12 +195,12 @@ public class PlanVisAppletFsm  extends PApplet implements MouseListener, MouseMo
 		// set base URL text field
 		base_iri.setText(a.getIRIPrefix()+"#");
 		
-		Vector<String> start = a.getHasValue().get("http://ias.cs.tum.edu/kb/knowrob.owl#taskStartState");
+		Vector<String> start = a.getHasValue().get("http://knowrob.org/kb/knowrob.owl#taskStartState");
 		if(start!=null && !start.isEmpty()) {
 			start_action.setText(OWLThing.getShortNameOfIRI(start.firstElement()));
 		}
 		
-		Vector<String> end = a.getHasValue().get("http://ias.cs.tum.edu/kb/knowrob.owl#taskEndState");
+		Vector<String> end = a.getHasValue().get("http://knowrob.org/kb/knowrob.owl#taskEndState");
 		if(end!=null && !end.isEmpty()) {
 			end_action.setText(OWLThing.getShortNameOfIRI(end.firstElement()));
 		}
@@ -672,7 +672,7 @@ public class PlanVisAppletFsm  extends PApplet implements MouseListener, MouseMo
 					// Check if in connection mode
 					if(newTransitionFromAction!=null) {
 
-						OWLIndividual t_ind = OWLIndividual.getOWLIndividualOfClass("http://ias.cs.tum.edu/kb/knowrob.owl#Transition");
+						OWLIndividual t_ind = OWLIndividual.getOWLIndividualOfClass("http://knowrob.org/kb/knowrob.owl#Transition");
 						newTransitionFromAction.addTransition(ActionTransition.getActionTransition(t_ind.getIRI(), newTransitionFromAction, a, "OK"));
 						redraw();
 
@@ -691,20 +691,20 @@ public class PlanVisAppletFsm  extends PApplet implements MouseListener, MouseMo
 						
 						start_action.setText(a.getShortName());
 						
-						if(currTask.getHasValue().containsKey("http://ias.cs.tum.edu/kb/knowrob.owl#taskStartState"))
-							currTask.getHasValue().get("http://ias.cs.tum.edu/kb/knowrob.owl#taskStartState").clear();
+						if(currTask.getHasValue().containsKey("http://knowrob.org/kb/knowrob.owl#taskStartState"))
+							currTask.getHasValue().get("http://knowrob.org/kb/knowrob.owl#taskStartState").clear();
 						
-						currTask.addHasValue("http://ias.cs.tum.edu/kb/knowrob.owl#taskStartState", a.getIRI());
+						currTask.addHasValue("http://knowrob.org/kb/knowrob.owl#taskStartState", a.getIRI());
 						select_start = false;
 						
 					} else if(select_end) {
 						
 						end_action.setText(a.getShortName());
 						
-						if(currTask.getHasValue().containsKey("http://ias.cs.tum.edu/kb/knowrob.owl#taskEndState"))
-							currTask.getHasValue().get("http://ias.cs.tum.edu/kb/knowrob.owl#taskEndState").clear();
+						if(currTask.getHasValue().containsKey("http://knowrob.org/kb/knowrob.owl#taskEndState"))
+							currTask.getHasValue().get("http://knowrob.org/kb/knowrob.owl#taskEndState").clear();
 						
-						currTask.addHasValue("http://ias.cs.tum.edu/kb/knowrob.owl#taskEndState", a.getIRI());
+						currTask.addHasValue("http://knowrob.org/kb/knowrob.owl#taskEndState", a.getIRI());
 						select_end = false;						
 					}
 				}
@@ -922,7 +922,7 @@ public class PlanVisAppletFsm  extends PApplet implements MouseListener, MouseMo
 				// create new recipe
 				Action new_action = Action.getAction(base_iri.getText() + new_recipe_shortname.getText(), 
 													 new_recipe_label.getText());
-				new_action.addSuperClass(Action.getOWLClass("http://ias.cs.tum.edu/kb/knowrob.owl#PurposefulAction"));
+				new_action.addSuperClass(Action.getOWLClass("http://knowrob.org/kb/knowrob.owl#PurposefulAction"));
 				new_action.getDrawInfo().recalculateDimensions(this);
 				this.setTask(new_action);
 				

@@ -414,7 +414,7 @@ public class ActionPropertiesEditor  extends PApplet implements MouseListener, M
 
 			// open class selection dialog	
 			if(ev.getController().getName().equals("class") || ev.getController().getName().equals("select class")) {
-				OWLClassSelect f = new OWLClassSelect("http://ias.cs.tum.edu/kb/knowrob.owl#PurposefulAction");
+				OWLClassSelect f = new OWLClassSelect("http://knowrob.org/kb/knowrob.owl#PurposefulAction");
 				f.setClassSelectedCallback(this); 
 			}
 
@@ -666,16 +666,16 @@ public class ActionPropertiesEditor  extends PApplet implements MouseListener, M
 		propId2item = new HashMap<Integer, ListBoxItem>();
 
 		// TODO read properties from KnowRob
-		String[] properties = new String[]{"http://ias.cs.tum.edu/kb/knowrob.owl#objectActedOn",
-				"http://ias.cs.tum.edu/kb/knowrob.owl#reactionType",
-				"http://ias.cs.tum.edu/kb/knowrob.owl#spokenText",
-				"http://ias.cs.tum.edu/kb/knowrob.owl#queryText",
-				"http://ias.cs.tum.edu/kb/knowrob.owl#toLocation",
-				"http://ias.cs.tum.edu/kb/knowrob.owl#fromLocation",
-				"http://ias.cs.tum.edu/kb/knowrob.owl#operatorType",
-				"http://ias.cs.tum.edu/kb/knowrob.owl#bodyPartUsed",
-				"http://ias.cs.tum.edu/kb/knowrob.owl#compressionLevel",
-				"http://ias.cs.tum.edu/kb/knowrob.owl#downscaleFactor"};
+		String[] properties = new String[]{"http://knowrob.org/kb/knowrob.owl#objectActedOn",
+				"http://knowrob.org/kb/knowrob.owl#reactionType",
+				"http://knowrob.org/kb/knowrob.owl#spokenText",
+				"http://knowrob.org/kb/knowrob.owl#queryText",
+				"http://knowrob.org/kb/knowrob.owl#toLocation",
+				"http://knowrob.org/kb/knowrob.owl#fromLocation",
+				"http://knowrob.org/kb/knowrob.owl#operatorType",
+				"http://knowrob.org/kb/knowrob.owl#bodyPartUsed",
+				"http://knowrob.org/kb/knowrob.owl#compressionLevel",
+				"http://knowrob.org/kb/knowrob.owl#downscaleFactor"};
 
 		synchronized (props) {
 			for(String property : properties) {

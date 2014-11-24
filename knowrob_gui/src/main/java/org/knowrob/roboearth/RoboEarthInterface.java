@@ -192,7 +192,7 @@ public class RoboEarthInterface {
 		q += "\nUSING NAMESPACE\n" +
 			"re=<http://www.roboearth.org/kb/roboearth.owl#>,\n" + 
 			"rdfs=<http://www.w3.org/2000/01/rdf-schema#>,\n" +
-			"kr=<http://ias.cs.tum.edu/kb/knowrob.owl#> ";
+			"kr=<http://knowrob.org/kb/knowrob.owl#> ";
 
 //CommunicationVisApplet.visualizeCommunication("Requesting map from RoboEarth..." + q, "", "pr2.jpg", "roboearth.png");
 		

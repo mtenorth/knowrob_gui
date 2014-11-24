@@ -258,11 +258,11 @@ public class Action extends OWLClass {
 			sub_actions.remove(sub_action);
 			
 			// adapt task start state and end state if the respective action has been deleted
-			if(has_value.containsKey("http://ias.cs.tum.edu/kb/knowrob.owl#taskStartState") &&
-			   has_value.get("http://ias.cs.tum.edu/kb/knowrob.owl#taskStartState").contains(sub_action.getIRI())) {
+			if(has_value.containsKey("http://knowrob.org/kb/knowrob.owl#taskStartState") &&
+			   has_value.get("http://knowrob.org/kb/knowrob.owl#taskStartState").contains(sub_action.getIRI())) {
 				
 				// remove old start state definition
-				has_value.get("http://ias.cs.tum.edu/kb/knowrob.owl#taskStartState").remove(sub_action.getIRI());
+				has_value.get("http://knowrob.org/kb/knowrob.owl#taskStartState").remove(sub_action.getIRI());
 				
 				if(sub_action.getTransitions()!=null && 
 						sub_action.getTransitions().getTransitionsFrom(sub_action)!=null) {
@@ -271,17 +271,17 @@ public class Action extends OWLClass {
 					
 					// add the first to-action of the transitions from the deleted action as new start state
 					for(ActionTransition t : trans) {
-						has_value.get("http://ias.cs.tum.edu/kb/knowrob.owl#taskStartState").add(t.to.getIRI());
+						has_value.get("http://knowrob.org/kb/knowrob.owl#taskStartState").add(t.to.getIRI());
 						break;
 					}
 				}
 			}
 			
-			if(has_value.containsKey("http://ias.cs.tum.edu/kb/knowrob.owl#taskEndState") &&
-			   has_value.get("http://ias.cs.tum.edu/kb/knowrob.owl#taskEndState").contains(sub_action.getIRI())) {
+			if(has_value.containsKey("http://knowrob.org/kb/knowrob.owl#taskEndState") &&
+			   has_value.get("http://knowrob.org/kb/knowrob.owl#taskEndState").contains(sub_action.getIRI())) {
 
 				// remove old start state definition
-				has_value.get("http://ias.cs.tum.edu/kb/knowrob.owl#taskEndState").remove(sub_action.getIRI());
+				has_value.get("http://knowrob.org/kb/knowrob.owl#taskEndState").remove(sub_action.getIRI());
 				
 				// create new end state definitions
 				if(getTransitionsRecursive()!=null && 
@@ -291,7 +291,7 @@ public class Action extends OWLClass {
 					
 					// add all from-actions of the transitions from the deleted action as new end states
 					for(ActionTransition t : trans) {
-						has_value.get("http://ias.cs.tum.edu/kb/knowrob.owl#taskEndState").add(t.from.getIRI());
+						has_value.get("http://knowrob.org/kb/knowrob.owl#taskEndState").add(t.from.getIRI());
 					}
 				}
 			}
@@ -393,14 +393,14 @@ public class Action extends OWLClass {
 		super.readFromProlog();
 
 		// remove subAction and stateTransition properties from the generic property maps
-		some_values_from.remove("http://ias.cs.tum.edu/kb/knowrob.owl#subAction");
-		has_value.remove("http://ias.cs.tum.edu/kb/knowrob.owl#stateTransition");
+		some_values_from.remove("http://knowrob.org/kb/knowrob.owl#subAction");
+		has_value.remove("http://knowrob.org/kb/knowrob.owl#stateTransition");
 		
 		// post-process action-specific properties
 		
 		// set start state
-		if(has_value.containsKey("http://ias.cs.tum.edu/kb/knowrob.owl#taskStartState")) {
-			transitions.setStartAction(Action.getAction(has_value.get("http://ias.cs.tum.edu/kb/knowrob.owl#taskStartState").firstElement()));
+		if(has_value.containsKey("http://knowrob.org/kb/knowrob.owl#taskStartState")) {
+			transitions.setStartAction(Action.getAction(has_value.get("http://knowrob.org/kb/knowrob.owl#taskStartState").firstElement()));
 		}
 
 		// Read sub-actions of the current action
@@ -446,7 +446,7 @@ public class Action extends OWLClass {
 		try {
 			
 			HashMap<String, Vector<String>> qTrans = 
-				PrologInterface.executeQuery("class_properties_value('"+iri+"', 'http://ias.cs.tum.edu/kb/knowrob.owl#stateTransition', Trans)");
+				PrologInterface.executeQuery("class_properties_value('"+iri+"', 'http://knowrob.org/kb/knowrob.owl#stateTransition', Trans)");
 
 			if(qTrans!=null && qTrans.get("Trans").size()>0) {
 
@@ -491,7 +491,7 @@ public class Action extends OWLClass {
 
 					// write transitions as restrictions on this class
 					String trans = PrologQueryUtils.createStateTransition(t.from.getIRI(), t.to.getIRI(), t.getCause());
-					PrologQueryUtils.createRestriction(iri, "http://ias.cs.tum.edu/kb/knowrob.owl#stateTransition", trans, "http://www.w3.org/2002/07/owl#hasValue", "knowrob_java");
+					PrologQueryUtils.createRestriction(iri, "http://knowrob.org/kb/knowrob.owl#stateTransition", trans, "http://www.w3.org/2002/07/owl#hasValue", "knowrob_java");
 				}
 			}
 			
@@ -503,7 +503,7 @@ public class Action extends OWLClass {
 			sub.writeToProlog();
 
 			// assert subAction relation
-			PrologQueryUtils.createRestriction(iri, "http://ias.cs.tum.edu/kb/knowrob.owl#subAction", sub.getIRI(), "http://www.w3.org/2002/07/owl#someValuesFrom", "knowrob_java");
+			PrologQueryUtils.createRestriction(iri, "http://knowrob.org/kb/knowrob.owl#subAction", sub.getIRI(), "http://www.w3.org/2002/07/owl#someValuesFrom", "knowrob_java");
 		}
 	}
 }

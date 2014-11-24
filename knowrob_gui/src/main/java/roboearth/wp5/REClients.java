@@ -109,7 +109,7 @@ public class REClients {
 				"{S} roboearth:providesModelFor {"+objclass.replace("'", "")+"}\n" +
 				"USING NAMESPACE\n" +
 				"roboearth=<http://www.roboearth.org/kb/roboearth.owl#>,\n"+
-				"knowrob=<http://ias.cs.tum.edu/kb/knowrob.owl#>";
+				"knowrob=<http://knowrob.org/kb/knowrob.owl#>";
 
 //		CommunicationVisApplet.visualizeCommunication("Requesting model for object '"+objclass.replace("'", "")+"' from RoboEarth..." + q, "", "pr2.jpg", "roboearth.png");
 		//		System.err.println("\nRequesting model for: " + objclass.replace("'", ""));
@@ -227,7 +227,7 @@ public class REClients {
 		String q = "SELECT source FROM CONTEXT source\n" +
 			"{<" + recipeClass + ">} rdf:type {owl:Class}\n" +
 			"USING NAMESPACE\n" +
-			"knowrob=<http://ias.cs.tum.edu/kb/knowrob.owl#>,owl=<http://www.w3.org/2002/07/owl#>";
+			"knowrob=<http://knowrob.org/kb/knowrob.owl#>,owl=<http://www.w3.org/2002/07/owl#>";
 
 //		CommunicationVisApplet.visualizeCommunication("Requesting action recipe for '"+command.replace("'", "")+"' from RoboEarth...\n"+q, "", "pr2.jpg", "roboearth.png");
 		String res;
@@ -313,7 +313,7 @@ public class REClients {
 		q += "\nUSING NAMESPACE\n" +
 				"re=<http://www.roboearth.org/kb/roboearth.owl#>,\n" + 
 				"rdfs=<http://www.w3.org/2000/01/rdf-schema#>,\n" +
-				"kr=<http://ias.cs.tum.edu/kb/knowrob.owl#> ";
+				"kr=<http://knowrob.org/kb/knowrob.owl#> ";
 
 
 //		CommunicationVisApplet.visualizeCommunication("Requesting map from RoboEarth..." + q, "", "pr2.jpg", "roboearth.png");
@@ -368,8 +368,8 @@ public class REClients {
 		OWLOntology owlMap = OWLIO.loadOntologyFromFile(filename);
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		OWLDataFactory factory = manager.getOWLDataFactory();
-		DefaultPrefixManager pm = new DefaultPrefixManager("http://ias.cs.tum.edu/kb/knowrob.owl#");
-		pm.setPrefix("knowrob:", "http://ias.cs.tum.edu/kb/knowrob.owl#");
+		DefaultPrefixManager pm = new DefaultPrefixManager("http://knowrob.org/kb/knowrob.owl#");
+		pm.setPrefix("knowrob:", "http://knowrob.org/kb/knowrob.owl#");
 		pm.setPrefix("roboearth:", "http://www.roboearth.org/kb/roboearth.owl#");
 
 		OWLDataProperty linkToMapFile   = factory.getOWLDataProperty("roboearth:linkToMapFile", pm);
@@ -391,7 +391,7 @@ public class REClients {
 
 						// request 2d map
 						String autoMapFilename = "auto_2d_loc_map";
-						String baseLaserLink = "http://ias.cs.tum.edu/kb/pr2.owl#pr2_base_laser"; // TODO auto-extract link name from SRDL?
+						String baseLaserLink = "http://knowrob.org/kb/pr2.owl#pr2_base_laser"; // TODO auto-extract link name from SRDL?
 
 						ArrayList<byte[]> mapBytes;
 						mapBytes = conn.request2dMap(Util.getFilenameFromURL(url), srdl, baseLaserLink, autoMapFilename);
@@ -446,8 +446,8 @@ public class REClients {
 		OWLOntology owlMap = OWLIO.loadOntologyFromFile(filename);
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		OWLDataFactory factory = manager.getOWLDataFactory();
-		DefaultPrefixManager pm = new DefaultPrefixManager("http://ias.cs.tum.edu/kb/knowrob.owl#");
-		pm.setPrefix("knowrob:", "http://ias.cs.tum.edu/kb/knowrob.owl#");
+		DefaultPrefixManager pm = new DefaultPrefixManager("http://knowrob.org/kb/knowrob.owl#");
+		pm.setPrefix("knowrob:", "http://knowrob.org/kb/knowrob.owl#");
 		pm.setPrefix("roboearth:", "http://www.roboearth.org/kb/roboearth.owl#");
 
 		OWLDataProperty linkToMapFile   = factory.getOWLDataProperty("roboearth:linkToMapFile", pm);
